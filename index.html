@@ -88,8 +88,8 @@
       <nav class="navlinks">
         <a href="#kategoriler">Kategoriler</a>
         <a href="#ilanlar">İlanlar</a>
-        <button class="btn" onclick="alert('Üyelik ekranını bir sonraki aşamada kuracağız.')">Giriş yap</button>
-        <button class="btn btn-primary" onclick="alert('Firma kayıt ekranını bir sonraki aşamada kuracağız.')">Ücretsiz kayıt ol</button>
+        <button class="btn" onclick="showAuth('login')">Giriş yap</button>
+        <button class="btn btn-primary" onclick="showAuth('signup')">Ücretsiz kayıt ol</button>
       </nav>
     </div>
   </header>
@@ -149,7 +149,16 @@
     <div class="container">© 2026 teklif. İşletmeler için teklif platformu.</div>
   </footer>
 
-  <script>
+ <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+    const SUPABASE_URL = "https://fmfyokfbnxwsnmvszpiz.supabase.co/rest/v1/";
+    const SUPABASE_KEY = "sb_publishable_Kp1sJKcGdjrJ7TAiwL9r1Q_niH2ayl3";
+
+    const supabaseClient = window.supabase.createClient(
+      SUPABASE_URL,
+      SUPABASE_KEY
+    );
+
     const categories = [
       ["İnşaat ve Yapı", "🏗️"],
       ["Elektrik ve Enerji", "⚡"],
