@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Firmaları, ilanları ve tedarikçileri tek platformda buluşturun.">
+  <title>Teklif | İşletmeler İçin Teklif Platformu</title>
+  <style>
+    :root {
+      --primary: #2457e6;
+      --ink: #172033;
+      --muted: #687386;
+      --line: #e7eaf0;
+      --bg: #f7f8fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: white;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(1120px, 92%); margin: auto; }
+    header { border-bottom: 1px solid var(--line); }
+    .nav {
+      min-height: 76px; display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+    }
+    .logo { font-size: 27px; font-weight: 800; letter-spacing: -1px; }
+    .logo span { color: var(--primary); }
+    .navlinks { display: flex; align-items: center; gap: 22px; }
+    .btn {
+      border: 1px solid var(--line); border-radius: 10px;
+      padding: 12px 17px; background: white; font-weight: 700;
+    }
+    .btn-primary { background: var(--primary); color: white; border-color: var(--primary); }
+    .hero { background: var(--bg); padding: 68px 0 58px; text-align: center; }
+    .eyebrow { color: var(--primary); font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
+    h1 { max-width: 760px; margin: 16px auto; font-size: clamp(34px, 5vw, 55px); line-height: 1.1; letter-spacing: -2px; }
+    .subtitle { color: var(--muted); font-size: 17px; line-height: 1.7; max-width: 620px; margin: 0 auto 28px; }
+    .search {
+      max-width: 760px; margin: auto; padding: 8px; background: white;
+      border: 1px solid var(--line); border-radius: 14px;
+      display: flex; gap: 8px; box-shadow: 0 8px 30px #1720330b;
+    }
+    .search input { flex: 1; min-width: 0; border: 0; outline: none; padding: 12px; }
+    section { padding: 48px 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 15px; margin-bottom: 24px; }
+    h2 { font-size: 26px; margin: 0 0 8px; }
+    .muted { color: var(--muted); line-height: 1.6; }
+    .categories { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .category {
+      padding: 22px 16px; border: 1px solid var(--line); border-radius: 14px;
+      transition: border-color .2s, transform .2s;
+    }
+    .category:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .category-icon { font-size: 25px; margin-bottom: 15px; }
+    .category strong { display: block; font-size: 14px; line-height: 1.4; }
+    .listings { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .listing { padding: 22px; border: 1px solid var(--line); border-radius: 14px; }
+    .tag { display: inline-block; background: #eef2ff; color: var(--primary); padding: 6px 9px; border-radius: 7px; font-size: 12px; font-weight: 700; }
+    .listing h3 { font-size: 18px; margin: 16px 0 9px; }
+    .listing .muted { font-size: 14px; }
+    .listing-bottom { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; }
+    .cta { background: #172033; color: white; border-radius: 18px; padding: 38px; display: flex; justify-content: space-between; align-items: center; gap: 25px; }
+    .cta h2 { font-size: 28px; }
+    .cta p { color: #c7cfde; margin-bottom: 0; }
+    footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: 13px; }
+    @media (max-width: 760px) {
+      .nav { padding: 15px 0; flex-wrap: wrap; }
+      .navlinks { gap: 12px; flex-wrap: wrap; font-size: 13px; }
+      .navlinks .btn { padding: 9px 11px; }
+      .hero { padding: 48px 0; }
+      .categories { grid-template-columns: repeat(2, 1fr); }
+      .listings { grid-template-columns: 1fr; }
+      .section-head, .cta { align-items: flex-start; flex-direction: column; }
+      h1 { letter-spacing: -1px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">teklif<span>.</span></a>
+      <nav class="navlinks">
+        <a href="#kategoriler">Kategoriler</a>
+        <a href="#ilanlar">İlanlar</a>
+        <button class="btn" onclick="alert('Üyelik ekranını bir sonraki aşamada kuracağız.')">Giriş yap</button>
+        <button class="btn btn-primary" onclick="alert('Firma kayıt ekranını bir sonraki aşamada kuracağız.')">Ücretsiz kayıt ol</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">İşletmeler için yeni nesil teklif platformu</div>
+        <h1>İhtiyacını paylaş.<br>Doğru teklifleri bul.</h1>
+        <p class="subtitle">İşletmeni güvenilir tedarikçilerle buluştur. İlan oluştur, teklifleri karşılaştır ve işini büyüt.</p>
+        <form class="search" id="searchForm">
+          <input id="searchInput" type="search" placeholder="Ürün, hizmet veya ilan ara..." aria-label="İlan ara">
+          <button class="btn btn-primary" type="submit">İlan ara</button>
+        </form>
+      </div>
+    </section>
+
+    <section id="kategoriler">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Kategorileri keşfet</h2>
+            <p class="muted">İhtiyacın olan ürün ve hizmete doğru kategoriden ulaş.</p>
+          </div>
+        </div>
+        <div class="categories" id="categoryGrid"></div>
+      </div>
+    </section>
+
+    <section id="ilanlar" style="background: var(--bg);">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Öne çıkan ilanlar</h2>
+            <p class="muted">Tedarik fırsatlarını keşfetmeye buradan başla.</p>
+          </div>
+        </div>
+        <div class="listings" id="listingGrid"></div>
+        <p id="emptyMessage" class="muted" hidden>Aramana uygun örnek ilan bulunamadı.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta">
+          <div>
+            <h2>İlk ilanını oluşturmaya hazır mısın?</h2>
+            <p>İşletmeni platforma taşı ve tedarik fırsatlarını keşfet.</p>
+          </div>
+          <button class="btn btn-primary" onclick="alert('İlan oluşturma ekranını sonraki aşamada kuracağız.')">Hemen başla</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 teklif. İşletmeler için teklif platformu.</div>
+  </footer>
+
+  <script>
+    const categories = [
+      ["İnşaat ve Yapı", "🏗️"],
+      ["Elektrik ve Enerji", "⚡"],
+      ["Makine ve Ekipman", "⚙️"],
+      ["Hammadde ve Sanayi", "🏭"],
+      ["Ofis ve İşletme", "🏢"],
+      ["Lojistik ve Taşımacılık", "🚚"],
+      ["Bilişim ve Teknoloji", "💻"],
+      ["Gıda ve Tarım", "🌾"],
+      ["Temizlik ve Tüketim", "🧹"],
+      ["Hizmet ve İşçilik", "🛠️"]
+    ];
+
+    const sampleListings = [
+      { category: "Elektrik ve Enerji", title: "Elektrik malzemeleri için teklif talebi", description: "Kablo, şalt malzemeleri ve elektrik ekipmanları.", budget: "Teklif bekleniyor" },
+      { category: "İnşaat ve Yapı", title: "Yapı malzemeleri tedariki", description: "Proje için düzenli malzeme tedarikçisi aranıyor.", budget: "Teklif bekleniyor" },
+      { category: "Lojistik ve Taşımacılık", title: "Şehirler arası taşıma hizmeti", description: "Kurumsal gönderiler için nakliye teklifi.", budget: "Teklif bekleniyor" }
+    ];
+
+    const categoryGrid = document.getElementById("categoryGrid");
+    const listingGrid = document.getElementById("listingGrid");
+    const emptyMessage = document.getElementById("emptyMessage");
+
+    categories.forEach(([name, icon]) => {
+      const card = document.createElement("a");
+      card.className = "category";
+      card.href = "#ilanlar";
+      const symbol = document.createElement("div");
+      symbol.className = "category-icon";
+      symbol.textContent = icon;
+      const title = document.createElement("strong");
+      title.textContent = name;
+      card.append(symbol, title);
+      card.addEventListener("click", () => {
+        document.getElementById("searchInput").value = name;
+        renderListings(name);
+      });
+      categoryGrid.appendChild(card);
+    });
+
+    function renderListings(query = "") {
+      listingGrid.replaceChildren();
+      const filtered = sampleListings.filter(item =>
+        (item.title + " " + item.description + " " + item.category)
+          .toLocaleLowerCase("tr-TR")
+          .includes(query.toLocaleLowerCase("tr-TR"))
+      );
+
+      filtered.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "listing";
+
+        const tag = document.createElement("span");
+        tag.className = "tag";
+        tag.textContent = item.category;
+
+        const title = document.createElement("h3");
+        title.textContent = item.title;
+
+        const description = document.createElement("p");
+        description.className = "muted";
+        description.textContent = item.description;
+
+        const bottom = document.createElement("div");
+        bottom.className = "listing-bottom";
+
+        const budget = document.createElement("strong");
+        budget.textContent = item.budget;
+
+        const label = document.createElement("span");
+        label.textContent = "Örnek ilan";
+
+        bottom.append(budget, label);
+        card.append(tag, title, description, bottom);
+        listingGrid.appendChild(card);
+      });
+
+      emptyMessage.hidden = filtered.length !== 0;
+    }
+
+    document.getElementById("searchForm").addEventListener("submit", event => {
+      event.preventDefault();
+      renderListings(document.getElementById("searchInput").value.trim());
+      document.getElementById("ilanlar").scrollIntoView({ behavior: "smooth" });
+    });
+
+    renderListings();
+  </script>
+</body>
+</html>
